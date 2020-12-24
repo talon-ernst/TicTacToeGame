@@ -18,3 +18,13 @@ C:\Users\Talon Ernst\Downloads\TEAssignment3\TEAssignment3\TEAssignment3\obj\Deb
 C:\Users\Talon Ernst\Downloads\TEAssignment3\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.csproj.CoreCompileInputs.cache
 C:\Users\Talon Ernst\Downloads\TEAssignment3\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.exe
 C:\Users\Talon Ernst\Downloads\TEAssignment3\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.pdb
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\bin\Debug\TEAssignment3.exe.config
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\bin\Debug\TEAssignment3.exe
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\bin\Debug\TEAssignment3.pdb
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.csprojAssemblyReference.cache
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.frmGame.resources
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.Properties.Resources.resources
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.csproj.GenerateResource.cache
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.csproj.CoreCompileInputs.cache
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.exe
+C:\Users\Talon Ernst\Desktop\Applications\Projects\TicTacToeGame\TicTacToeGame\TEAssignment3\TEAssignment3\obj\Debug\TEAssignment3.pdb

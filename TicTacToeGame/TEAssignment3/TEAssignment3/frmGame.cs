@@ -17,11 +17,17 @@ namespace TEAssignment3
             InitializeComponent();
         }
 
+        private const string PLAYER_ONE_MOVE = "X";
+        private const string PLAYER_TWO_MOVE = "O";
+
         string[,] gameArray = new string[3, 3];
         int whosTurn = 0;
         int arrayX;
         int arrayY;
         int gameNumber = 1;
+        int amountOfGames = 0;
+        int xWins = 0;
+        int oWins = 0;
         
         /// <summary>
         /// Sets some picturebox properties on form load
@@ -37,63 +43,63 @@ namespace TEAssignment3
         {
             arrayX = 0;
             arrayY = 0;
-            picBox1 = changePicure(picBox1);           
+            picBox1 = ChangePicure(picBox1);           
         }
 
         private void picBox2_Click(object sender, EventArgs e)
         {
             arrayX = 0;
             arrayY = 1;
-            picBox2 = changePicure(picBox2);       
+            picBox2 = ChangePicure(picBox2);       
         }
 
         private void picBox3_Click(object sender, EventArgs e)
         {
             arrayX = 0;
             arrayY = 2;
-            picBox3 = changePicure(picBox3);           
+            picBox3 = ChangePicure(picBox3);           
         }
 
         private void picBox4_Click(object sender, EventArgs e)
         {
             arrayX = 1;
             arrayY = 0;
-            picBox4 = changePicure(picBox4);
+            picBox4 = ChangePicure(picBox4);
         }
 
         private void picBox5_Click(object sender, EventArgs e)
         {
             arrayX = 1;
             arrayY = 1;
-            picBox5 = changePicure(picBox5);
+            picBox5 = ChangePicure(picBox5);
         }
 
         private void picBox6_Click(object sender, EventArgs e)
         {
             arrayX = 1;
             arrayY = 2;
-            picBox6 = changePicure(picBox6);
+            picBox6 = ChangePicure(picBox6);
         }
 
         private void picBox7_Click(object sender, EventArgs e)
         {
             arrayX = 2;
             arrayY = 0;
-            picBox7 = changePicure(picBox7);
+            picBox7 = ChangePicure(picBox7);
         }
 
         private void picBox8_Click(object sender, EventArgs e)
         {
             arrayX = 2;
             arrayY = 1;
-            picBox8 = changePicure(picBox8);
+            picBox8 = ChangePicure(picBox8);
         }
 
         private void picBox9_Click(object sender, EventArgs e)
         {
             arrayX = 2;
             arrayY = 2;
-            picBox9 = changePicure(picBox9);
+            picBox9 = ChangePicure(picBox9);
         }
 
         /// <summary>
@@ -103,22 +109,23 @@ namespace TEAssignment3
         /// </summary>
         /// <param name="picture"></param>
         /// <returns></returns>
-        private PictureBox changePicure(PictureBox picture)
+        private PictureBox ChangePicure(PictureBox picture)
         {           
             if (picture.Image == null)
             {
-                if (GameTurn())
+                if (WhosTurnIsIt())
                 {
                     picture.Image = Properties.Resources.TicTacToeX;
-                    gameArray[arrayX, arrayY] = "X";
+                    gameArray[arrayX, arrayY] = PLAYER_ONE_MOVE;
                 }
                 else
                 {
                     picture.Image = Properties.Resources.TicTacToeO;
-                    gameArray[arrayX, arrayY] = "O";
+                    gameArray[arrayX, arrayY] = PLAYER_TWO_MOVE;
                 }
             }
             CheckEndGame();
+            IsMatchOver();
             return picture;
         }
 
@@ -126,7 +133,7 @@ namespace TEAssignment3
         /// Decides if it is X or Os turn.
         /// </summary>
         /// <returns></returns>
-        public bool GameTurn()
+        public bool WhosTurnIsIt()
         {
             if (whosTurn == 0)
             {
@@ -152,20 +159,22 @@ namespace TEAssignment3
             {
                 for (int j = 0; j< 3; j++)
                 {
-                    if (gameArray[i, 0] == "X" && gameArray[i, 1] == "X" && gameArray[i, 2] == "X" || gameArray[0, j] == "X" && gameArray[1, j] == "X" && gameArray[2, j] == "X")
+                    if (gameArray[i, 0] == PLAYER_ONE_MOVE && gameArray[i, 1] == PLAYER_ONE_MOVE && gameArray[i, 2] == PLAYER_ONE_MOVE || gameArray[0, j] == PLAYER_ONE_MOVE && gameArray[1, j] == PLAYER_ONE_MOVE && gameArray[2, j] == PLAYER_ONE_MOVE)
                     {                      
                         MessageBox.Show("X Wins!");
                         i = 3;
                         rtbWinners.Text += $"X Won Game: {gameNumber}\n";
+                        xWins += 1;
                         gameNumber++;
                         SetGame();
                         break;
                     }
 
-                    else if (gameArray[i, 0] == "O" && gameArray[i, 1] == "O" && gameArray[i, 2] == "O" || gameArray[0, j] == "O" && gameArray[1, j] == "O" && gameArray[2, j] == "O")
+                    else if (gameArray[i, 0] == "O" && gameArray[i, 1] == PLAYER_TWO_MOVE && gameArray[i, 2] == PLAYER_TWO_MOVE || gameArray[0, j] == PLAYER_TWO_MOVE && gameArray[1, j] == PLAYER_TWO_MOVE && gameArray[2, j] == PLAYER_TWO_MOVE)
                     {                       
                         MessageBox.Show("O Wins!");
                         rtbWinners.Text += $"O Won Game: {gameNumber}\n";
+                        oWins += 1;
                         gameNumber++;
                         i = 3;
                         SetGame();
@@ -173,17 +182,19 @@ namespace TEAssignment3
                     }                      
                 }             
             }
-            if (gameArray[0, 0] == "X" && gameArray[1, 1] == "X" && gameArray[2, 2] == "X" || gameArray[0, 2] == "X" && gameArray[1, 1] == "X" && gameArray[2, 0] == "X")
+            if (gameArray[0, 0] == PLAYER_ONE_MOVE && gameArray[1, 1] == PLAYER_ONE_MOVE && gameArray[2, 2] == PLAYER_ONE_MOVE || gameArray[0, 2] == PLAYER_ONE_MOVE && gameArray[1, 1] == PLAYER_ONE_MOVE && gameArray[2, 0] == PLAYER_ONE_MOVE)
             {
                 MessageBox.Show("X Wins!");
                 rtbWinners.Text += $"X Won Game: {gameNumber}\n";
+                xWins += 1;
                 gameNumber++;
                 SetGame();
             }
-            else if (gameArray[0, 0] == "O" && gameArray[1, 1] == "O" && gameArray[2, 2] == "O" || gameArray[0, 2] == "O" && gameArray[1, 1] == "O" && gameArray[2, 0] == "O")
+            else if (gameArray[0, 0] == "O" && gameArray[1, 1] == PLAYER_TWO_MOVE && gameArray[2, 2] == PLAYER_TWO_MOVE || gameArray[0, 2] == PLAYER_TWO_MOVE && gameArray[1, 1] == PLAYER_TWO_MOVE && gameArray[2, 0] == PLAYER_TWO_MOVE)
             {
                 MessageBox.Show("O Wins!");
                 rtbWinners.Text += $"O Won Game: {gameNumber}\n";
+                oWins += 1;
                 gameNumber++;
                 SetGame();
             }
@@ -224,5 +235,29 @@ namespace TEAssignment3
                 }
             }
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtAmountOfGames.Text.ToString()} matches is needed to win!");
+            amountOfGames = Convert.ToInt32(txtAmountOfGames.Text);
+        }
+
+        private void IsMatchOver()
+        {
+            if (amountOfGames != 0)
+            {
+                if (amountOfGames == xWins)
+                {
+                    MessageBox.Show("Player X has won the entire match!");
+                    SetGame();
+                }
+                else if (String.Equals(amountOfGames, oWins))
+                {
+                    MessageBox.Show("Player O has won the entire match!");
+                    SetGame();
+                }
+            }
+        }
+
     }
 }
