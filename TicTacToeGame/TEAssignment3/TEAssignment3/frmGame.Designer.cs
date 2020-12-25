@@ -47,6 +47,7 @@
             this.lblHowManyGames = new System.Windows.Forms.Label();
             this.txtAmountOfGames = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnMatchResults = new System.Windows.Forms.Button();
             this.pnlGameBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox8)).BeginInit();
@@ -72,7 +73,7 @@
             this.pnlGameBoard.Controls.Add(this.picBox2);
             this.pnlGameBoard.Controls.Add(this.picBox1);
             this.pnlGameBoard.Location = new System.Drawing.Point(209, 57);
-            this.pnlGameBoard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlGameBoard.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGameBoard.Name = "pnlGameBoard";
             this.pnlGameBoard.Size = new System.Drawing.Size(337, 337);
             this.pnlGameBoard.TabIndex = 0;
@@ -80,7 +81,7 @@
             // picBox9
             // 
             this.picBox9.Location = new System.Drawing.Point(226, 226);
-            this.picBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox9.Margin = new System.Windows.Forms.Padding(2);
             this.picBox9.Name = "picBox9";
             this.picBox9.Size = new System.Drawing.Size(107, 107);
             this.picBox9.TabIndex = 8;
@@ -90,7 +91,7 @@
             // picBox8
             // 
             this.picBox8.Location = new System.Drawing.Point(115, 226);
-            this.picBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox8.Margin = new System.Windows.Forms.Padding(2);
             this.picBox8.Name = "picBox8";
             this.picBox8.Size = new System.Drawing.Size(107, 107);
             this.picBox8.TabIndex = 7;
@@ -100,7 +101,7 @@
             // picBox7
             // 
             this.picBox7.Location = new System.Drawing.Point(5, 226);
-            this.picBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox7.Margin = new System.Windows.Forms.Padding(2);
             this.picBox7.Name = "picBox7";
             this.picBox7.Size = new System.Drawing.Size(107, 107);
             this.picBox7.TabIndex = 6;
@@ -110,7 +111,7 @@
             // picBox6
             // 
             this.picBox6.Location = new System.Drawing.Point(226, 114);
-            this.picBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox6.Margin = new System.Windows.Forms.Padding(2);
             this.picBox6.Name = "picBox6";
             this.picBox6.Size = new System.Drawing.Size(107, 107);
             this.picBox6.TabIndex = 5;
@@ -120,7 +121,7 @@
             // picBox5
             // 
             this.picBox5.Location = new System.Drawing.Point(115, 114);
-            this.picBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox5.Margin = new System.Windows.Forms.Padding(2);
             this.picBox5.Name = "picBox5";
             this.picBox5.Size = new System.Drawing.Size(107, 107);
             this.picBox5.TabIndex = 4;
@@ -130,7 +131,7 @@
             // picBox4
             // 
             this.picBox4.Location = new System.Drawing.Point(5, 114);
-            this.picBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox4.Margin = new System.Windows.Forms.Padding(2);
             this.picBox4.Name = "picBox4";
             this.picBox4.Size = new System.Drawing.Size(107, 107);
             this.picBox4.TabIndex = 3;
@@ -140,7 +141,7 @@
             // picBox3
             // 
             this.picBox3.Location = new System.Drawing.Point(226, 3);
-            this.picBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox3.Margin = new System.Windows.Forms.Padding(2);
             this.picBox3.Name = "picBox3";
             this.picBox3.Size = new System.Drawing.Size(107, 107);
             this.picBox3.TabIndex = 2;
@@ -150,7 +151,7 @@
             // picBox2
             // 
             this.picBox2.Location = new System.Drawing.Point(115, 3);
-            this.picBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox2.Margin = new System.Windows.Forms.Padding(2);
             this.picBox2.Name = "picBox2";
             this.picBox2.Size = new System.Drawing.Size(107, 107);
             this.picBox2.TabIndex = 1;
@@ -160,7 +161,7 @@
             // picBox1
             // 
             this.picBox1.Location = new System.Drawing.Point(5, 3);
-            this.picBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBox1.Margin = new System.Windows.Forms.Padding(2);
             this.picBox1.Name = "picBox1";
             this.picBox1.Size = new System.Drawing.Size(107, 107);
             this.picBox1.TabIndex = 0;
@@ -208,7 +209,7 @@
             // 
             this.rtbWinners.ForeColor = System.Drawing.SystemColors.MenuText;
             this.rtbWinners.Location = new System.Drawing.Point(8, 81);
-            this.rtbWinners.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbWinners.Margin = new System.Windows.Forms.Padding(2);
             this.rtbWinners.Name = "rtbWinners";
             this.rtbWinners.ReadOnly = true;
             this.rtbWinners.Size = new System.Drawing.Size(120, 230);
@@ -268,6 +269,16 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnMatchResults
+            // 
+            this.btnMatchResults.Location = new System.Drawing.Point(555, 293);
+            this.btnMatchResults.Name = "btnMatchResults";
+            this.btnMatchResults.Size = new System.Drawing.Size(75, 36);
+            this.btnMatchResults.TabIndex = 11;
+            this.btnMatchResults.Text = "See Match Results";
+            this.btnMatchResults.UseVisualStyleBackColor = true;
+            this.btnMatchResults.Click += new System.EventHandler(this.btnMatchResults_Click);
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +286,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(787, 401);
+            this.Controls.Add(this.btnMatchResults);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtAmountOfGames);
             this.Controls.Add(this.lblHowManyGames);
@@ -285,7 +297,7 @@
             this.Controls.Add(this.lblWhosTurn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlGameBoard);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic Tac Toe";
@@ -326,6 +338,7 @@
         private System.Windows.Forms.Label lblHowManyGames;
         private System.Windows.Forms.TextBox txtAmountOfGames;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnMatchResults;
     }
 }
 

@@ -17,17 +17,19 @@ namespace TEAssignment3
             InitializeComponent();
         }
 
+        //Consts for players
         private const string PLAYER_ONE_MOVE = "X";
         private const string PLAYER_TWO_MOVE = "O";
 
-        string[,] gameArray = new string[3, 3];
-        int whosTurn = 0;
-        int arrayX;
-        int arrayY;
-        int gameNumber = 1;
-        int amountOfGames = 0;
-        int xWins = 0;
-        int oWins = 0;
+        //Variables used throughtout the program
+        string[,] gameArray = new string[3, 3];    
+        int arrayX, arrayY;
+        int gameNumber = 1;    
+        int oWins, xWins, whosTurn, amountOfGames, matchNumber = 0;
+        string allMatches = "";
+
+        //List used to store game wins
+        List<GameResults> games = new List<GameResults>();
         
         /// <summary>
         /// Sets some picturebox properties on form load
@@ -150,7 +152,8 @@ namespace TEAssignment3
         }
 
         /// <summary>
-        /// Checks for the end of the game.
+        /// Checks for the end of the game. The for loop goes 
+        /// through every possible way to win and also checks for a tie
         /// </summary>
         private void CheckEndGame()
         {
@@ -214,6 +217,11 @@ namespace TEAssignment3
             }
         }
 
+        private void btnMatchResults_Click(object sender, EventArgs e)
+        {
+            ShowMatchWins();
+        }
+
         /// <summary>
         /// Sets things for he game on form load.
         /// </summary>
@@ -221,6 +229,7 @@ namespace TEAssignment3
         {
             lblWhosTurn.Text = "Currently X's Turn";
             whosTurn = 0;
+           
             foreach (PictureBox picture in pnlGameBoard.Controls)
             {                           
                 picture.Image = null;
@@ -236,12 +245,26 @@ namespace TEAssignment3
             }
         }
 
+        /// <summary>
+        /// On Click event for the submit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{txtAmountOfGames.Text.ToString()} matches is needed to win!");
-            amountOfGames = Convert.ToInt32(txtAmountOfGames.Text);
+            if(!int.TryParse(txtAmountOfGames.Text, out amountOfGames)){
+                MessageBox.Show("Must enter a valid positive number!");
+            }
+            else
+            {
+                MessageBox.Show($"{txtAmountOfGames.Text} match(s) needed to win!");
+                amountOfGames = Convert.ToInt32(txtAmountOfGames.Text);
+            }           
         }
 
+        /// <summary>
+        /// Checks if their is a winner for the match
+        /// </summary>
         private void IsMatchOver()
         {
             if (amountOfGames != 0)
@@ -249,15 +272,41 @@ namespace TEAssignment3
                 if (amountOfGames == xWins)
                 {
                     MessageBox.Show("Player X has won the entire match!");
+                    matchNumber += 1;
+                    games.Add(new GameResults() { gameID = matchNumber, winner = "Player X" });                  
                     SetGame();
+                    ResetMatches();
                 }
                 else if (String.Equals(amountOfGames, oWins))
                 {
                     MessageBox.Show("Player O has won the entire match!");
+                    matchNumber += 1;
+                    games.Add(new GameResults() { gameID = matchNumber, winner = "Player Y" });
                     SetGame();
+                    ResetMatches();
                 }
             }
         }
-
+        private void ShowMatchWins()
+        {
+            allMatches = "";
+            if (games.Any())
+            {
+               for(int i = 0; i < games.Count; i++)
+               {
+                    allMatches += games[i] + "\n";
+               }
+                MessageBox.Show(allMatches);
+            }
+            else
+            {
+                MessageBox.Show("No games to show");
+            }          
+        }
+        private void ResetMatches()
+        {
+            xWins = 0;
+            oWins = 0;
+        }
     }
 }
